@@ -1,0 +1,20 @@
+import numpy as np
+import time
+
+# Load the recorded IQ data
+file_path = "/home/patmfm/Desktop/RC_car/carup.raw"
+sample_rate = 2e6  # Replace with your sample rate in Hz
+delay_seconds = 2  # Desired delay in seconds
+
+# Read the data
+data = np.fromfile(file_path, dtype=np.complex64)  # Adjust dtype to match your format
+
+# Introduce the delay
+time.sleep(10)
+
+# Play the data (e.g., send to SDR or another system)
+for sample in data:
+    # Send each sample to your output system (e.g., via SDR or socket)
+    print(sample)  # Replace with actual output logic
+    time.sleep(1 / sample_rate)
+
